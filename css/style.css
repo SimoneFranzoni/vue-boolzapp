@@ -37,6 +37,67 @@ main{
 
 .block{
     width: 80%;
-    height: 80%;
+    height: 90%;
     background-color: white;
+    display: flex;
+
+}
+
+.block .left{
+    height: 100%;
+    width: 40%;
+    border: 1px black solid;
+}
+
+.block .right{
+    height: 100%;
+    width: 60%;
+    border: 1px black solid;
+}
+
+.block .top{
+    height: 10%;
+    width: 100%;
+    border: 1px black solid;
+}
+
+.notifiche{
+    height: 10%;
+    width: 100%;
+    background-color: cadetblue;
+}
+
+.block .left .searchbar{
+    width: 100%;
+    height: 7%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block .left .searchbar input{
+    width: 98%;
+    height: 70%;
+    padding: 10px;
+}
+
+.chat{
+    width: 100%;
+    height: 80%;
+    background-color: grey;
+}
+
+.block .right .searchbar{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.block .right .searchbar input{
+    width: 75%;
+    height: 70%;
+    padding: 10px;
 }
