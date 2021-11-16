@@ -8,7 +8,7 @@ const app = new Vue({
             contacts: [
                 {
                     name: 'Michele',
-                    avatar: '_1',
+                    avatar: 'img\avatar_1.jpg',
                     visible: true,
                     messages: [{
                         date: '10/01/2020 15:30:55',

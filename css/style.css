@@ -8,24 +8,6 @@ body{
     height: 100vh;
 }
 
-.bg{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-
-.top-bg{
-    background-color: green;
-    width: 100%;
-    height: 20%;
-}
-
-.bottom-bg{
-    background-color: grey;
-    width: 100%;
-    height: 80%;
-}
-
 main{
     position: relative;
     width: 100%;
@@ -33,44 +15,110 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image:
+    linear-gradient(to bottom,
+        #009688 0px,
+        #009688 15vh,
+        #dddbd1 15vh,
+        #d2dbdc 100%);
+    font-family: 'Lato', sans-serif;
 }
+
+/*general elements*/
+.box-icone i{
+    padding: 0 10px;
+    font-size: 20px;
+    color: grey;
+}
+
+.box-icone i:hover{
+    color: black;
+}
+
+h2{
+    font-size: 15px;
+}
+/**/
 
 .block{
     width: 80%;
     height: 90%;
     background-color: white;
     display: flex;
-
 }
 
 .block .left{
     height: 100%;
-    width: 40%;
-    border: 1px black solid;
+    width: 35%;
 }
 
 .block .right{
     height: 100%;
-    width: 60%;
-    border: 1px black solid;
+    width: 65%;
 }
 
 .block .top{
     height: 10%;
     width: 100%;
-    border: 1px black solid;
+    background-color: rgb(214, 214, 214);
+}
+
+.block .left .top{
+    border-right: grey 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.block .top img{
+    height: 80%;
+}
+
+
+.block .top .box-avatar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+    height: 100%;
+}
+
+.box-icone{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.box .right .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .notifiche{
     height: 10%;
     width: 100%;
-    background-color: cadetblue;
+    background-color: rgb(30, 226, 233);
+    display: flex;
+    align-items: center;
+}
+
+.notifiche i{
+    font-size: 15px;
+    color: black;
+}
+
+.notifiche p{
+    color: grey;
+    font-size: 10px;
+    text-decoration: underline;
 }
 
 .block .left .searchbar{
     width: 100%;
     height: 7%;
-    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,7 +133,7 @@ main{
 .chat{
     width: 100%;
     height: 80%;
-    background-color: grey;
+    background-color: rgb(167, 157, 157);
 }
 
 .block .right .searchbar{
@@ -105,22 +153,35 @@ main{
 .contatti{
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
 }
 
 .box-contatto{
     width: 100%;
     height: 10%;
-    background-color: grey;
     display: flex;
-  
+    border-bottom: rgb(211, 211, 211) 1px solid;
+    background-color: rgb(197, 196, 196);
+    padding: 5px;
 }
 
-.box-contatto .flex-int{
+.flex-int{
     display: flex;
+    align-content: flex-end;
+    justify-content: end;
 }
 
-.box-contatto img{
+.avatar{
     border-radius: 50px;
-    margin: 5px 15px;
+    margin: 0 15px 0 15px;
+}
+
+.box-contatto h2{
+    font-size: 20px;
+    margin-top: 3px;
+}
+
+.box-contatto p{
+    font-size: 10px;
+    color: grey;
+    margin-top: 3px;
 }
