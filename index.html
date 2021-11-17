@@ -25,7 +25,9 @@
                     </div>
                     </div>
                 <div class="notifiche">
-                    <i class="fas fa-bell-slash"></i>
+                    <div id="bell-box">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
                     <div>
                         <h2>Ricevi notifiche di nuovi messaggi</h2>
                         <p>Attiva notifiche desktop</p>
@@ -38,12 +40,14 @@
 
                     <div
                         v-for="(contact, index) in contacts"
+                        @click="activeuser = index"
+                        :class="{'active': activeuser ===index}"
                      class="box-contatto">
-                        <img :src="contact.avatar" alt="" class="avatar">
+                        <img :src="`img/avatar${contact.avatar}.jpg`" alt="" class="avatar">
                         <div class="flex-int">
                             <div>
                                 <h2>{{contact.name}}</h2>
-                                <p>Tutto vlavla</p>
+                                <p>{{getlastmessage(index)}}</p>
                             </div>
                             <p>00:00:00</p>
                         </div>
@@ -56,8 +60,8 @@
             <div class="right">
                 <div class="top">
                     <div class="box-avatar">
-                        <img src="img\avatar_io.jpg" alt="" class="avatar">
-                        <h2>Nome utente</h2>
+                        <img :src="`img/avatar${contacts[activeuser].avatar}.jpg`" alt="" class="avatar">
+                        <h2>{{contacts[activeuser].name}}</h2>
                     </div>
                     <div class="box-icone">
                         <i class="fas fa-circle-notch"></i>
@@ -66,10 +70,21 @@
                     </div>
                 </div>
                 <div class="chat">
-
+                    <div id="container-chat">
+                        <div
+                        v-for="item in contacts[activeuser].messages"
+                        :class="item.status"
+                        class="message">
+                            <span>{{item.message}}</span>
+                            <p class="date">{{item.date}}</p>
+                        </div>
+                       
+                    </div>
                 </div>
                 <div class="searchbar">
+                    <i class="far fa-smile"></i>
                     <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fas fa-microphone"></i>
                 </div>
             </div>
         </div>

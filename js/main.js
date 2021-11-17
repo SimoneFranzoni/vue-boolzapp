@@ -1,5 +1,9 @@
 const app = new Vue({
     el: '#app',
+    mounted(){
+        console.log(this.contacts[this.activeuser].messages)
+        console.log(this.contacts[this.activeuser].messages[this.contacts[this.activeuser].messages.length - 1].message);
+    },
         data:{
             user: {
                 name: '',
@@ -8,7 +12,7 @@ const app = new Vue({
             contacts: [
                 {
                     name: 'Michele',
-                    avatar: 'img\avatar_1.jpg',
+                    avatar: '_1',
                     visible: true,
                     messages: [{
                         date: '10/01/2020 15:30:55',
@@ -86,6 +90,16 @@ const app = new Vue({
                     ],
                 },
             ],
-
+            activeuser: 0,
+        },
+        methods: {
+            getlastmessage(index){
+                let lastmessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
+                /*tronco il mex se superiore a 30 caratteri*/
+                if(lastmessage.length > 30){
+                    lastmessage = lastmessage.substr(0,30)+"...";
+                }
+                return lastmessage;
+            }
         }
 })
