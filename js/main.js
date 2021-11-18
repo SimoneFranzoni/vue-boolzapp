@@ -11,7 +11,7 @@ const app = new Vue({
             },
             contacts: [
                 {
-                    name: 'Michele',
+                    name: 'Mamma',
                     avatar: '_1',
                     visible: true,
                     messages: [{
@@ -48,7 +48,7 @@ const app = new Vue({
                         {
                             date: '20/03/2020 16:35:00',
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                            status: 'received'
+                            status: 'sent'
                         }
                     ],
                 },
@@ -89,9 +89,12 @@ const app = new Vue({
                         }
                     ],
                 },
+               
             ],
             activeuser: 0,
+            newmessage: '',
         },
+
         methods: {
             getlastmessage(index){
                 let lastmessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
@@ -100,6 +103,22 @@ const app = new Vue({
                     lastmessage = lastmessage.substr(0,30)+"...";
                 }
                 return lastmessage;
-            }
+            },
+
+            getdate(index){
+                let date = this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
+                return date;
+            },
+
+            sendmessage(){
+                const newmessage = {
+                    date:dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    message:this.messagetosent,
+                    status: 'sent',
+                };
+            console.log(newmessage);
+            this.contacts[this.activeuser].messages.push(newmessage);
+            this.messagetosent = '';
+            },
         }
 })

@@ -49,7 +49,7 @@
                                 <h2>{{contact.name}}</h2>
                                 <p>{{getlastmessage(index)}}</p>
                             </div>
-                            <p>00:00:00</p>
+                            <p>{{getdate(index)}}</p>
                         </div>
                         
                         
@@ -83,13 +83,18 @@
                 </div>
                 <div class="searchbar">
                     <i class="far fa-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input
+                    v-model="messagetosent"
+                    @keyup.enter="sendmessage()"
+                     type="text" placeholder="Scrivi un messaggio">
                     <i class="fas fa-microphone"></i>
                 </div>
             </div>
         </div>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
