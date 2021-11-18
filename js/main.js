@@ -111,14 +111,25 @@ const app = new Vue({
             },
 
             sendmessage(){
-                const newmessage = {
-                    date:dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                    message:this.messagetosent,
-                    status: 'sent',
-                };
-            console.log(newmessage);
-            this.contacts[this.activeuser].messages.push(newmessage);
-            this.messagetosent = '';
+                /*l'imput è da troncare negli spazi altrimenti si possono mandare spazi vuoti*/
+                if(this.messagetosent != ''){
+                    const newmessage = {
+                        date:dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                        message:this.messagetosent,
+                        status: 'sent',
+                    };
+                    console.log(newmessage);
+                    this.contacts[this.activeuser].messages.push(newmessage);
+                    this.messagetosent = '';
+                    /*risposta automatica*/
+                    setTimeout(() =>{
+                        this.contacts[this.activeuser].messages.push ({
+                            date:dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                            message: 'ciao',
+                            status: 'received',
+                        });
+                    },3000)
+                }
             },
         }
 })

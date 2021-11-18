@@ -41,7 +41,7 @@
                     <div
                         v-for="(contact, index) in contacts"
                         @click="activeuser = index"
-                        :class="{'active': activeuser ===index}"
+                        :class="{'active': activeuser === index}"
                      class="box-contatto">
                         <img :src="`img/avatar${contact.avatar}.jpg`" alt="" class="avatar">
                         <div class="flex-int">
